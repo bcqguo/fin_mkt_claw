@@ -1,0 +1,10 @@
+yfinance
+feedparser
+pandas
+sentence-transformers
+faiss-cpu
+torch
+transformers
+sendgrid
+bitsandbytes
+accelerate

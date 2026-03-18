@@ -1,0 +1,17 @@
+services:
+  finclaw:
+    build: .
+    container_name: finclaw
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      # Persist Hugging Face model downloads across container recreations.
+      - HF_HOME=/root/.cache/huggingface
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - /home/dada/.cache/huggingface:/root/.cache/huggingface
+    # Requires NVIDIA Container Toolkit to be installed on the host.
+    # To run on CPU, remove `gpus: all` and set `DEVICE=cpu` in `.env`.
+    gpus: all
