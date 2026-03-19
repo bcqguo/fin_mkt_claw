@@ -1,0 +1,5 @@
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# Run at 6:00am every weekday
+0 6 * * 1-5 root cd /app && /opt/venv/bin/python main.py >> /app/logs/cron.log 2>&1
